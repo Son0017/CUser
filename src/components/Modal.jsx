@@ -14,8 +14,10 @@ function ModalItem({ data, setData }) {
   });
 
   function escape() {
-    document.addEventListener("keydown", () => {
-      setModal(false);
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        setModal(false);
+      }
     });
   }
   escape();
@@ -41,7 +43,7 @@ function ModalItem({ data, setData }) {
         <div className="modal-wrapper">
           <div
             className="overlay"
-            onClick={(e) => {
+            onClick={() => {
               setModal(false);
             }}
           >
